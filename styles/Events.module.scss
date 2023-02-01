@@ -1,0 +1,14 @@
+@import "utilities/variables";
+.container {
+  background-color: $secondary;
+  width: 100vw;
+  height: auto;
+  .images {
+    width: 95%;
+    margin: 2rem auto;
+  }
+}
+.unScrollPage {
+  max-height: 100vh;
+  overflow: hidden;
+}

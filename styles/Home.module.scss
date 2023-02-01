@@ -1,0 +1,29 @@
+@import "utilities/variables";
+.main {
+  .cover_3d {
+    width: 100vw;
+    height: 90vh;
+  }
+  .cover {
+    display: none;
+  }
+}
+.unScrollPage {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 979px) {
+}
+
+@media (max-width: 576px) {
+  .main {
+    .cover_3d {
+      display: none;
+    }
+    .cover {
+      display: block;
+      overflow: hidden;
+    }
+  }
+}

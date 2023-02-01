@@ -1,0 +1,92 @@
+@import "utilities/variables";
+
+.background {
+  background-color: white;
+}
+.hamburger {
+  width: 6rem;
+  position: absolute;
+  right: 0;
+  display: none;
+}
+
+.navTools {
+  position: absolute;
+  right: 0;
+}
+.navItems {
+  color: $black;
+  &:hover {
+    color: $primary;
+    .navItemsImg {
+      visibility: visible;
+    }
+  }
+  .navItemsImg {
+    margin-left: 0.5rem;
+    visibility: hidden;
+  }
+}
+.active {
+  color: $primary;
+  .navItemsImg {
+    visibility: visible;
+  }
+}
+.hamContainer {
+  display: none;
+}
+
+// nav tools components
+.tools {
+  display: flex;
+  align-items: center;
+}
+.dialog {
+  width: 400px;
+  text-align: center;
+}
+
+@media (max-width: 979px) {
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .hamContainer {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: block;
+    background-color: $secondary;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    .logo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1rem;
+    }
+    .content {
+      text-align: center;
+      align-items: center;
+
+      .hamTools {
+        margin-left: -2rem;
+      }
+    }
+  }
+  .navTools {
+    display: none;
+  }
+  .path {
+    display: none;
+  }
+}

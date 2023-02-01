@@ -1,0 +1,52 @@
+@import "utilities/variables";
+.container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+  img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+
+    &:hover {
+      border: $primary;
+    }
+  }
+  .main {
+    width: 600px;
+    margin-left: 1rem;
+
+    .header {
+      display: flex;
+      margin: 0.5rem;
+      margin-left: 0;
+    }
+    .content {
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 979px) {
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: block;
+    margin-bottom: 1rem;
+    .main {
+      width: 100%;
+      margin-left: 0;
+      .header {
+        display: flex;
+        margin: 0.5rem;
+        margin-left: 0;
+      }
+      .content {
+        text-align: left;
+      }
+    }
+  }
+}

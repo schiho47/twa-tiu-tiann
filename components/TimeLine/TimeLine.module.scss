@@ -1,0 +1,38 @@
+.rwd {
+  display: none;
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 979px) {
+  .img {
+    display: none;
+  }
+  .rwd {
+    display: block;
+    max-width: 50%;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: none;
+  }
+  .img {
+    display: none;
+  }
+  .rwd {
+    display: block;
+    max-width: 400px;
+    max-width: 50%;
+  }
+  .timeLineConnector {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}

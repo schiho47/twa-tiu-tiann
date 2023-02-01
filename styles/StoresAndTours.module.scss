@@ -1,0 +1,60 @@
+@import "utilities/variables";
+.container {
+  background-color: $secondary;
+  width: 100vw;
+  height: auto;
+  .searchLine {
+    width: 80%;
+
+    margin: 0rem auto;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .main {
+    width: 80%;
+    margin: 3rem auto;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .none {
+      height: 100vh;
+      margin: 5rem auto;
+    }
+  }
+  .pagination {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+.unScrollPage {
+  max-height: 100vh;
+  overflow: hidden;
+}
+@media (max-width: 979px) {
+  .container {
+    .searchLine {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    .searchLine {
+      width: 100%;
+      display: block;
+    }
+    .main {
+      width: 100%;
+    }
+    .pagination {
+      width: 100%;
+    }
+  }
+}

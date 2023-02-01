@@ -1,0 +1,25 @@
+@import "utilities/variables";
+.container {
+  background-color: $secondary;
+  width: 100vw;
+  height: auto;
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px;
+    justify-content: space-between;
+    padding: 4rem;
+  }
+}
+.unScrollPage {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 576px) {
+  .container {
+    .product {
+      display: block;
+    }
+  }
+}

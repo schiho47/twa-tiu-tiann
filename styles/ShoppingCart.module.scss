@@ -1,0 +1,41 @@
+@import "utilities/variables";
+.container {
+  background-color: $secondary;
+  width: 100vw;
+  min-height: 100vh;
+
+  .title {
+    width: 90%;
+    margin: 3rem auto;
+    text-align: center;
+  }
+  .cart {
+    width: 65%;
+    border: 1px solid $black;
+    margin: 0 auto;
+
+    margin-bottom: 3rem;
+    .nothing {
+      height: 40vh;
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+.unScrollPage {
+  max-height: 100vh;
+  overflow: hidden;
+}
+@media (max-width: 979px) {
+  .container {
+    height: auto;
+    .cart {
+      width: 80%;
+    }
+  }
+}
+@media (max-width: 576px) {
+}
