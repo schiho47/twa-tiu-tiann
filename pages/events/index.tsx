@@ -5,7 +5,6 @@ import Navigation from "@components/Navigation/Navigation";
 import Product from "@components/Product/Product";
 import SpecialEvent from "@components/SpecialEvent/SpecialEvent";
 import Typography from "@components/Typography/Typography";
-import { textAlign } from "@mui/system";
 import style from "@styles/Events.module.scss";
 import HamStatusContext from "context/ham-status-context";
 import { GetStaticProps } from "next";

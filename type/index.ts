@@ -2,7 +2,7 @@ export interface NewsType {
   author: string | null;
   content: string | null;
   description: string | null;
-  published_at: string;
+  publishedAt: string;
   source: { id: string; name: string };
   title: string;
   url: string;

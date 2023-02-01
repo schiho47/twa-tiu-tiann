@@ -84,38 +84,22 @@ const Home: NextPage<HomeProps> = (props) => {
 
   const handleNewsData = async () => {
     const { data, status } = await axios.get(
-      "http://api.mediastack.com/v1/news?access_key=c530c1b4bfa5ccb63d17f0341e12dafe&countries=tw,jp,us"
+      "https://newsapi.org/v2/top-headlines?country=tw&apiKey=e6f47c19804a411ba773c0d5f303edcf"
     );
-    // console.log(data, status);
-    if (status === 200 && data.data.length > 0) {
-      setNewsData(data.data);
+    console.log(data, status);
+    if (status === 200 && data.articles.length > 0) {
+      setNewsData(data.articles);
       return;
     }
-    if (status === 200 && data.data.length === 0) {
+    if (status === 200 && data.articles.length === 0) {
       return;
     }
     if (status !== 200) {
       errorDialog.onOpen();
     }
-    //舊new api 僅供localhost 使用
-    // const { data, status } = await axios.get(
-    //   "https://newsapi.org/v2/top-headlines?country=tw&apiKey=e6f47c19804a411ba773c0d5f303edcf"
-    // );
-
-    // console.log(data, status);
-    // if (status === 200 && data.articles.length > 0) {
-    //   setNewsData(data.articles);
-    //   return;
-    // }
-    // if (status === 200 && data.articles.length === 0) {
-    //   return;
-    // }
-    // if (status !== 200) {
-    //   errorDialog.onOpen();
-    // }
   };
   useEffect(() => {
-    console.log(asPath, asPath.length);
+    // console.log(asPath, asPath.length);
     if (asPath.includes("error")) {
       return;
     }
@@ -167,15 +151,15 @@ const Home: NextPage<HomeProps> = (props) => {
             {newsData.length === 0 && <div>目前沒有最新消息</div>}
             {newsData.length > 0 &&
               newsData
-                .filter((news) => news.image !== null)
+                .filter((news) => news.urlToImage !== null)
                 .filter((news, index) => index < 3)
                 .map((news) => {
                   return (
                     <NewsCard
                       key={news.url}
-                      src={news.image}
+                      src={news.urlToImage}
                       title={news.title}
-                      time={format(new Date(news.published_at), "yyyy-MM-dd ")}
+                      time={format(new Date(news.publishedAt), "yyyy-MM-dd ")}
                       link={news.url}
                     />
                   );
