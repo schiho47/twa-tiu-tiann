@@ -84,20 +84,35 @@ const Home: NextPage<HomeProps> = (props) => {
 
   const handleNewsData = async () => {
     const { data, status } = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=tw&apiKey=e6f47c19804a411ba773c0d5f303edcf"
+      "http://api.mediastack.com/v1/news?access_key=c530c1b4bfa5ccb63d17f0341e12dafe&countries=tw,jp,us"
     );
-
-    console.log(data, status);
-    if (status === 200 && data.articles.length > 0) {
-      setNewsData(data.articles);
+    // console.log(data, status);
+    if (status === 200 && data.data.length > 0) {
+      setNewsData(data.data);
       return;
     }
-    if (status === 200 && data.articles.length === 0) {
+    if (status === 200 && data.data.length === 0) {
       return;
     }
     if (status !== 200) {
       errorDialog.onOpen();
     }
+    //舊new api 僅供localhost 使用
+    // const { data, status } = await axios.get(
+    //   "https://newsapi.org/v2/top-headlines?country=tw&apiKey=e6f47c19804a411ba773c0d5f303edcf"
+    // );
+
+    // console.log(data, status);
+    // if (status === 200 && data.articles.length > 0) {
+    //   setNewsData(data.articles);
+    //   return;
+    // }
+    // if (status === 200 && data.articles.length === 0) {
+    //   return;
+    // }
+    // if (status !== 200) {
+    //   errorDialog.onOpen();
+    // }
   };
   useEffect(() => {
     console.log(asPath, asPath.length);
@@ -152,15 +167,15 @@ const Home: NextPage<HomeProps> = (props) => {
             {newsData.length === 0 && <div>目前沒有最新消息</div>}
             {newsData.length > 0 &&
               newsData
-                .filter((news) => news.urlToImage !== null)
+                .filter((news) => news.image !== null)
                 .filter((news, index) => index < 3)
                 .map((news) => {
                   return (
                     <NewsCard
                       key={news.url}
-                      src={news.urlToImage}
+                      src={news.image}
                       title={news.title}
-                      time={format(new Date(news.publishedAt), "yyyy-MM-dd ")}
+                      time={format(new Date(news.published_at), "yyyy-MM-dd ")}
                       link={news.url}
                     />
                   );

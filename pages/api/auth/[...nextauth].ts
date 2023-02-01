@@ -7,8 +7,9 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId:
+        "438944546744-4kl26nr2ohq0l20nhl5t5bueoihsg04s.apps.googleusercontent.com",
+      clientSecret: "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",
       authorization: {
         params: {
           prompt: "consent",
@@ -18,8 +19,8 @@ export default NextAuth({
       },
     }),
     LineProvider({
-      clientId: process.env.LINE_CLIENT_ID!,
-      clientSecret: process.env.LINE_CLIENT_SECRET!,
+      clientId: "1657802989",
+      clientSecret: "127f597ea34d821d570ff9e7446b320f",
     }),
   ],
   callbacks: {
