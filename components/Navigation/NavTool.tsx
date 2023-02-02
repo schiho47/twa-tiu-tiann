@@ -42,8 +42,9 @@ const NavTool: React.FC<NavToolProps> = ({ isHamLogIn }) => {
   const { isHamOpen } = useContext(HamStatusContext);
   const [showDialog, setShowDialog] = useState(false);
   const [showLanList, setShowLanList] = useState(false);
+  const [avatarSrc, setAvatarSrc] = useState("");
   const cart = useSelector((state: CartStateType) => state.cart);
-  const avatarSrc = useRef<string>("");
+  const avatarSrcRef = useRef<string>("");
   const userName = useRef<string>("");
   const handleLogOut = () => {
     setShowDialog(true);
@@ -65,7 +66,8 @@ const NavTool: React.FC<NavToolProps> = ({ isHamLogIn }) => {
   useEffect(() => {
     if (localStorage.getItem("user")) {
       const userInfo = JSON.parse(localStorage.getItem("user")!);
-      avatarSrc.current = userInfo.userPicture;
+      setAvatarSrc(userInfo.userPicture);
+      avatarSrcRef.current = userInfo.userPicture;
       userName.current = userInfo.name;
     }
   }, [router.asPath]);
@@ -102,7 +104,7 @@ const NavTool: React.FC<NavToolProps> = ({ isHamLogIn }) => {
         )}
         {isLoggedIn && !isHamOpen && (
           <>
-            <Avatar src={avatarSrc.current} userName={userName.current} />
+            <Avatar src={avatarSrc} userName={userName.current} />
             <IconButton
               aria-label="Logout"
               size="large"
