@@ -68,7 +68,7 @@ const NavTool: React.FC<NavToolProps> = ({ isHamLogIn }) => {
       avatarSrc.current = userInfo.userPicture;
       userName.current = userInfo.name;
     }
-  });
+  }, [router.asPath]);
   return (
     <>
       <div className={style.tools}>
