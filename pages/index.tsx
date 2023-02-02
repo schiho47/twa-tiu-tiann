@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import axios from "axios";
 import Image from "next/image";
@@ -20,7 +21,7 @@ import TransportInfo from "@components/TransportInfo/TransportInfo";
 import Footer from "@components/Footer/Footer";
 import HamStatusContext from "context/ham-status-context";
 import WorkIn from "@components/WorkIn/WorkIn";
-import { useSession } from "next-auth/react";
+import Typography from "@components/Typography/Typography";
 
 interface HomeProps {}
 const Home: NextPage<HomeProps> = (props) => {
@@ -109,7 +110,7 @@ const Home: NextPage<HomeProps> = (props) => {
     }
 
     //news Data
-    handleNewsData();
+    // handleNewsData();
   }, []);
   useEffect(() => {
     handleClose();
@@ -141,6 +142,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
         <div>
           <Title title={t("news")} icon="/assets/index/news.png" />
+
           <div
             style={{
               width: "70%",
@@ -148,7 +150,18 @@ const Home: NextPage<HomeProps> = (props) => {
               textAlign: "center",
             }}
           >
-            {newsData.length === 0 && <div>目前沒有最新消息</div>}
+            <Typography variant={"body2"}>
+              最新消息採用news api，因news api
+              免費版僅提供開發使用，自覺改放假資料料意義不大，因此上線版以圖示表示，如有機會獲得面試我再show給您看😊
+            </Typography>
+            <Image
+              src={"/assets/index/demo_news.png"}
+              alt={"demo_news"}
+              width={1000}
+              height={400}
+              layout="responsive"
+            />
+            {/* {newsData.length === 0 && <div>目前沒有最新消息</div>}
             {newsData.length > 0 &&
               newsData
                 .filter((news) => news.urlToImage !== null)
@@ -163,7 +176,7 @@ const Home: NextPage<HomeProps> = (props) => {
                       link={news.url}
                     />
                   );
-                })}
+                })} */}
           </div>
           <div>
             <Title title={t("welcome")} icon="/assets/index/tea.png" />
