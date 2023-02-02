@@ -1,13 +1,22 @@
 import { useContext } from "react";
+import { useRouter } from "next/router";
 import { MenuList, MenuItem, Typography } from "@mui/material";
 import HamStatusContext from "context/ham-status-context";
+import Link from "next/link";
+
 interface LanguageListProps {
   isOpen: boolean;
 }
 
 const LanguageList: React.FC<LanguageListProps> = ({ isOpen }) => {
   // const languages = ["English", "日本語", "한국어"];
-  const languages = ["English"];
+  const router = useRouter();
+  const { pathname, query } = router;
+  const nextLocale = router.locale === "en" ? "zh-TW" : "en";
+  const languages = [
+    { language: "繁體中文", locale: "zh" },
+    { language: "English", locale: "en" },
+  ];
   const { isHamOpen } = useContext(HamStatusContext);
 
   return (
@@ -25,8 +34,10 @@ const LanguageList: React.FC<LanguageListProps> = ({ isOpen }) => {
         >
           <MenuList>
             {languages.map((lan) => (
-              <MenuItem key={lan} onClick={() => {}}>
-                <Typography textAlign="center">{lan}</Typography>
+              <MenuItem key={lan.locale}>
+                <Link locale={nextLocale} href={{ pathname, query }}>
+                  <Typography textAlign="center">{lan.language}</Typography>
+                </Link>
               </MenuItem>
             ))}
           </MenuList>
@@ -45,8 +56,10 @@ const LanguageList: React.FC<LanguageListProps> = ({ isOpen }) => {
           }}
         >
           {languages.map((lan) => (
-            <MenuItem key={lan} onClick={() => {}}>
-              <Typography textAlign="center">{lan}</Typography>
+            <MenuItem key={lan.locale}>
+              <Link locale={nextLocale} href={{ pathname, query }}>
+                <Typography textAlign="center">{lan.language}</Typography>
+              </Link>
             </MenuItem>
           ))}
         </div>
