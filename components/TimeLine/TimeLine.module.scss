@@ -19,7 +19,7 @@
 
 @media (max-width: 576px) {
   .container {
-    display: none;
+    display: none !important;
   }
   .img {
     display: none;

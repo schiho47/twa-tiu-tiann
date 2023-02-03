@@ -25,48 +25,47 @@ const TimeLineItem: React.FC<TimeLineItemProps> = ({
 }) => {
   return (
     <>
-      <div className={style.container}>
-        <MuiTimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: "auto 0" }}
-            align="right"
-            variant="body2"
-            color="text.secondary"
-          >
-            <div className={style.img}>
-              <Image
-                src={img}
-                alt={title}
-                width={400}
-                height={300}
-                style={{ border: "5px ridge " }}
-              />
-            </div>
-          </TimelineOppositeContent>
+      <MuiTimelineItem>
+        <TimelineOppositeContent
+          sx={{ m: "auto 0" }}
+          align="right"
+          variant="body2"
+          color="text.secondary"
+        >
+          <div className={style.img}>
+            <Image
+              src={img}
+              alt={title}
+              width={400}
+              height={300}
+              style={{ border: "5px ridge " }}
+            />
+          </div>
+        </TimelineOppositeContent>
 
-          <TimelineSeparator className={style.timeLineConnector}>
-            <TimelineConnector sx={{ bgcolor: "text.secondary" }} />
-            <TimelineDot sx={iconSx}>{icon}</TimelineDot>
-            <TimelineConnector sx={{ bgcolor: "text.secondary" }} />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "20px", px: 2 }}>
-            <div className={style.rwd}>
-              <Image
-                src={img}
-                alt={title}
-                width={400}
-                height={300}
-                style={{ border: "5px ridge " }}
-              />
-            </div>
+        <TimelineSeparator className={style.timeLineConnector}>
+          <TimelineConnector sx={{ bgcolor: "text.secondary" }} />
+          <TimelineDot sx={iconSx}>{icon}</TimelineDot>
+          <TimelineConnector sx={{ bgcolor: "text.secondary" }} />
+        </TimelineSeparator>
+        <TimelineContent sx={{ py: "20px", px: 2 }}>
+          <div className={style.rwd}>
+            <Image
+              src={img}
+              alt={title}
+              width={400}
+              height={300}
+              style={{ border: "5px ridge " }}
+            />
+          </div>
 
-            <Typography variant="h6" component="span">
-              {title}
-            </Typography>
-            <Typography>{detail}</Typography>
-          </TimelineContent>
-        </MuiTimelineItem>
-      </div>
+          <Typography variant="h6" component="span">
+            {title}
+          </Typography>
+          <Typography>{detail}</Typography>
+        </TimelineContent>
+      </MuiTimelineItem>
+
       <div className={style.mobile}>
         <span
           style={{

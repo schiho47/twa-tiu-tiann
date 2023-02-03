@@ -42,27 +42,28 @@ const HamburgerContent: React.FC<HamburgerContentProps> = ({ pages }) => {
           </MenuItem>
         </div>
         {pages.map((page) => (
-          <div>
-            <Link key={page.path} href={page.path}>
-              <MenuItem
-                className={
-                  asPath === `/${page.path}` ? style.active : style.navItems
-                }
+          <Link href={page.path} key={page.path}>
+            <div
+              className={
+                asPath === `/${page.path}` ? style.activeHam : style.pathContent
+              }
+            >
+              <Typography
+                variant="h6"
+                sx={{ margin: "2rem auto", textAlign: "center" }}
               >
-                <Typography variant="h6" sx={{ margin: "2rem auto" }}>
-                  {page.title}
-                </Typography>
-                <div className={style.navItemsImg}>
-                  <Image
-                    src={page.image}
-                    alt={page.path}
-                    width={30}
-                    height={30}
-                  />
-                </div>
-              </MenuItem>
-            </Link>
-          </div>
+                {page.title}
+              </Typography>
+              <div className={style.navItemsImg}>
+                <Image
+                  src={page.image}
+                  alt={page.path}
+                  width={30}
+                  height={30}
+                />
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

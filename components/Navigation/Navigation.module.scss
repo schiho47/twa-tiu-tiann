@@ -29,10 +29,12 @@
 }
 .active {
   color: $primary;
+
   .navItemsImg {
     visibility: visible;
   }
 }
+
 .hamContainer {
   display: none;
 }
@@ -80,6 +82,32 @@
 
       .hamTools {
         margin-left: -2rem;
+      }
+      .pathContent {
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        justify-content: center;
+        color: $black;
+        align-items: center;
+        &:hover {
+          color: $primary;
+        }
+        .navItemsImg {
+          visibility: hidden;
+        }
+      }
+
+      .activeHam {
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        justify-content: center;
+        color: $primary;
+        align-items: center;
+        .navItemsImg {
+          visibility: visible;
+        }
       }
     }
   }
