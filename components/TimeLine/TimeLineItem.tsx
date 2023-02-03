@@ -25,7 +25,7 @@ const TimeLineItem: React.FC<TimeLineItemProps> = ({
 }) => {
   return (
     <>
-      <MuiTimelineItem>
+      <MuiTimelineItem className={style.container}>
         <TimelineOppositeContent
           sx={{ m: "auto 0" }}
           align="right"
