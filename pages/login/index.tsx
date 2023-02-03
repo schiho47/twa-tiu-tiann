@@ -75,13 +75,11 @@ const LogIn: NextPage<LogInPageProps> = () => {
   }, [session]);
   useEffect(() => {
     if (typeof window === "object") {
-      window.addEventListener("resize", () => {
-        if (window.innerWidth < 576) {
-          setIsMobile(true);
-          return;
-        }
-        setIsMobile(false);
-      });
+      if (window.innerWidth < 576) {
+        setIsMobile(true);
+        return;
+      }
+      setIsMobile(false);
     }
   }, [typeof window === "object" && window.innerWidth]);
 
