@@ -152,7 +152,7 @@ const Home: NextPage<HomeProps> = (props) => {
           >
             <Typography variant={"body2"}>
               最新消息採用news api，因news api
-              免費版僅提供開發使用，自覺改放假資料料意義不大，因此上線版以圖示表示，如有機會獲得面試我再show給您看😊
+              免費版僅提供開發使用，自覺改放假資料意義不大，因此上線版以圖示表示，如有機會獲得面試我再show給您看😊
             </Typography>
             <Image
               src={"/assets/index/demo_news.png"}
