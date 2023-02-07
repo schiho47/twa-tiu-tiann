@@ -38,7 +38,7 @@ const products = [
   {
     id: 5,
     title: "花生騷森林動物系列繡片別針",
-    price: "120／個",
+    price: "120",
     img: "/assets/products/animals.jpg",
     quantity: 0,
   },
