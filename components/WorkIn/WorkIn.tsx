@@ -10,9 +10,15 @@ interface WorkInProps {}
 
 const WorkIn: React.FC<WorkInProps> = ({}) => {
   return (
-    <Canvas camera={{ position: [-30, -20, -3] }}>
+    <Canvas
+      camera={{ position: [-30, -20, -3] }}
+      style={{
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
       <Environment files="assets/index/slide1.hdr" background />
-      <OrbitControls autoRotate autoRotateSpeed={0.5} />
+      <OrbitControls autoRotate autoRotateSpeed={0.1} enableZoom={false} />
     </Canvas>
   );
 };

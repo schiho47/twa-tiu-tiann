@@ -2,7 +2,15 @@
 .main {
   .cover_3d {
     width: 100vw;
-    height: 85vh;
+    height: 90vh;
+    overflow: scroll;
+
+    // background-image: linear-gradient(
+    //     to bottom,
+    //     rgba(255, 255, 255, 0.6),
+    //     rgba(255, 255, 255, 0.6)
+    //   ),
+    //   url("/assets/index/slide1.jpg");
   }
   .cover {
     display: none;
