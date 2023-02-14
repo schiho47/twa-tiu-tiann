@@ -94,77 +94,62 @@ const LogIn: NextPage<LogInPageProps> = () => {
             width={700}
             height={500}
           ></Image>
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              margin: "0 auto",
-              "& > :not(style)": {
-                width: !isMobile ? 600 : 350,
-                height: !isMobile ? 500 : 550,
-              },
-            }}
-          >
-            <Paper elevation={3}>
-              <div className={styles.form}>
-                <h1>登入</h1>
-                <Input
-                  title={"Email"}
-                  id={"email"}
-                  style={{ display: "flex", margin: "2rem 0" }}
-                  value={userLogIn.email}
-                  name="email"
-                  onChange={handleInputChange}
-                  type="email"
-                  error={logInError.email}
+          <div className={styles.form}>
+            <h1>登入</h1>
+            <Input
+              title={"Email"}
+              id={"email"}
+              style={{ display: "flex", margin: "2rem 0" }}
+              value={userLogIn.email}
+              name="email"
+              onChange={handleInputChange}
+              type="email"
+              error={logInError.email}
+            />
+            <Input
+              title={"密碼"}
+              id={"password"}
+              style={{ display: "flex", margin: "2rem 0" }}
+              value={userLogIn.password}
+              name="password"
+              onChange={handleInputChange}
+              type="password"
+              error={logInError.password}
+            />
+            <div className={styles.buttonSection}>
+              <Button
+                text="取消"
+                variant="outlined"
+                size="large"
+                color="secondary"
+                onClick={() => router.push("/")}
+              />
+              <Button
+                text="登入"
+                variant="contained"
+                size="large"
+                onClick={checkLogIn}
+              />
+            </div>
+            <div className={styles.otherLogInSection}>
+              <button onClick={handleLineLogin}>
+                <Image
+                  src="/assets/login/btn_line.png"
+                  alt="line-login"
+                  width={180}
+                  height={50}
                 />
-                <Input
-                  title={"密碼"}
-                  id={"password"}
-                  style={{ display: "flex", margin: "2rem 0" }}
-                  value={userLogIn.password}
-                  name="password"
-                  onChange={handleInputChange}
-                  type="password"
-                  error={logInError.password}
+              </button>
+              <button onClick={handleGoogleLogin}>
+                <Image
+                  src="/assets/login/btn_google.png"
+                  alt="line-login"
+                  width={200}
+                  height={50}
                 />
-                <div className={styles.buttonSection}>
-                  <Button
-                    text="取消"
-                    variant="outlined"
-                    size="large"
-                    color="secondary"
-                    onClick={() => router.push("/")}
-                  />
-                  <Button
-                    text="登入"
-                    variant="contained"
-                    size="large"
-                    onClick={checkLogIn}
-                  />
-                </div>
-                <div className={styles.otherLogInSection}>
-                  <button onClick={handleLineLogin}>
-                    <Image
-                      src="/assets/login/btn_line.png"
-                      alt="line-login"
-                      width={180}
-                      height={50}
-                    />
-                  </button>
-                  <button onClick={handleGoogleLogin}>
-                    <Image
-                      src="/assets/login/btn_google.png"
-                      alt="line-login"
-                      width={200}
-                      height={50}
-                    />
-                  </button>
-                </div>
-              </div>
-            </Paper>
-          </Box>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div className={styles.footer}>
