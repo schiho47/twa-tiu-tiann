@@ -1,4 +1,4 @@
-@import "utilities/variables";
+@import 'utilities/variables';
 .container {
   width: 100vw;
   height: 140px;
@@ -22,10 +22,6 @@
       margin-top: 1rem;
       width: 50%;
     }
-  }
-  .safe {
-    width: 25%;
-    margin-top: 10px;
   }
 }
 @media (max-width: 979px) {
